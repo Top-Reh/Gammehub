@@ -25,6 +25,19 @@ const homePosts = [
                 comment: 'ONIC will win for sure 💛',
                 postedTime: '2024-06-02T17:40:00Z',
                 thumbnail: 'https://i.pinimg.com/1200x/dc/09/8f/dc098f0532de3c000039bda2b1a4e546.jpg',
+            },{
+                id: 1,
+                username: 'esports_lover',
+                comment: 'This is going to be insane!',
+                postedTime: '2024-06-02T17:20:00Z',
+                thumbnail: 'https://i.pinimg.com/1200x/dc/09/8f/dc098f0532de3c000039bda2b1a4e546.jpg',
+            },
+            {
+                id: 2,
+                username: 'pro_gamer',
+                comment: 'ONIC will win for sure 💛',
+                postedTime: '2024-06-02T17:40:00Z',
+                thumbnail: 'https://i.pinimg.com/1200x/dc/09/8f/dc098f0532de3c000039bda2b1a4e546.jpg',
             }
         ],
         likes: 5,
@@ -90,7 +103,8 @@ const homePosts = [
         likedpeople: ['champion_guess', 'onic_supporter', 'mlbb_fan'],
         shares: 4,
         sharedpeople: ['user1', 'user2']
-    }
+    },
+    
 ];
 
 export default homePosts;

@@ -22,7 +22,7 @@ const Live = ({ status }) => {
             {
                 liveStreams.map(stream => (
                     <div key={stream.id} style={{ backgroundImage: `url(${stream.thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className={`${kidsClass} bg-gray-500 rounded-xl relative flex flex-col gap-0 justify-end items-start pl-4 pr-4 pb-5 shrink-0`}>
-                        <span className='w-4 h-4 rounded-full bg-red-500 z-10 absolute top-3 left-3'></span>
+                        <span className='livereddot w-3 h-3 rounded-full bg-red-500 z-10 absolute top-3 left-3'></span>
                         <h4 className='text-white text-[14px] font-semibold'>{stream.username}</h4>
                         <p className='text-white text-[13px]'>{stream.caption}</p>
                     </div>

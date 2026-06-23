@@ -93,3 +93,17 @@ button:focus-visible {
   border-bottom: 8px solid transparent;
   border-right: 8px solid #ffffff;
 }
+
+.livereddot {
+  background-color: #ff0000;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
