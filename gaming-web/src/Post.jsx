@@ -1,15 +1,21 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 
 const Post = () => {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/home-posts")
-            .then(res => res.json())
-            .then(data => setPosts(data))
+        const getPosts = async () => {
+            const res = await axios.get(
+                'http://localhost:3000/home-posts'
+            );
+
+            setPosts(res.data);
+            };
+        getPosts();
     }, []);
 
   return (

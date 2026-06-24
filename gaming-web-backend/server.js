@@ -5,10 +5,18 @@ import liveStreams from './live.js';
 import upcomingStreams from './upcoming.js';
 import upcomingMatch from './upcomingmatch.js';
 import homePosts from './homepost.js';
+import dotenv from 'dotenv';
+import connectDB from './config/db.js';
+import Post from './models/Post.js';
+
+dotenv.config();
+connectDB();
 
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
+
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the Gaming Web Backend!');
@@ -26,8 +34,9 @@ app.get('/upcoming', (req, res) => {
   res.json(upcomingStreams)
 });
 
-app.get('/home-posts', (req, res) => {
-  res.json(homePosts)
+app.get('/home-posts', async(req, res) => {
+  const posts = await Post.find().sort({ postedTime: -1 });
+  res.json(posts);
 });
 
 app.get('/users', (req, res) => {

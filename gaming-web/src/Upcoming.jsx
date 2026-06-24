@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const VISIBLE_COUNT = 3; // how many matches show by default
 
@@ -7,10 +8,11 @@ const Upcoming = ({ title }) => {
   const [moreMatches, setMoreMatches] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/upcoming-matches")
-      .then(res => res.json())
-      .then(data => setUpcomingMatches(data))
-      .catch(err => console.error("Error fetching upcoming matches:", err));
+    const fetchUpcomingMatches = async () => {
+      const res = await axios.get('http://localhost:3000/upcoming-matches');
+      setUpcomingMatches(res.data);
+    };
+    fetchUpcomingMatches();
   }, []);
 
   const moreMatchesHandler = () => {
