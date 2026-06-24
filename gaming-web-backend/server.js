@@ -43,6 +43,17 @@ app.get('/users', (req, res) => {
   res.json(users);
 });
 
+app.post('/home-posts/:id/like', async (req, res) => {
+  const postId = req.params.id;
+  const post = await Post.findById(postId);
+  if (!post) {
+    return res.status(404).json({ message: 'Post not found' });
+  }
+  post.likes += 1;
+  await post.save();
+  res.json(post);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
